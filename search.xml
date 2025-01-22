@@ -1,51 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title></title>
-    <url>/2025/01/19/my-first-blog/</url>
-    <content><![CDATA[<p>–从你提供的信息来看，你正在使用 Hexo（一个基于 Node.js 的静态博客框架），并且正在克隆 Hexo 的官方 starter 模板仓库（<code>hexo-starter</code>）。以下是一些相关的解释和下一步操作建议：</p>
-<hr>
-<h3 id="1-为什么需要克隆-hexo-starter？"><a href="#1-为什么需要克隆-hexo-starter？" class="headerlink" title="1. 为什么需要克隆 hexo-starter？"></a>1. <strong>为什么需要克隆 <code>hexo-starter</code>？</strong></h3><p>Hexo 提供了一个官方模板仓库（<code>hexo-starter</code>），其中包含了一个基本的 Hexo 项目结构。通过克隆这个仓库，你可以快速初始化一个 Hexo 博客项目，而不需要手动创建文件和目录。</p>
-<hr>
-<h3 id="2-克隆完成后，下一步该做什么？"><a href="#2-克隆完成后，下一步该做什么？" class="headerlink" title="2. 克隆完成后，下一步该做什么？"></a>2. <strong>克隆完成后，下一步该做什么？</strong></h3><p>克隆完成后，你会得到一个包含 Hexo 项目结构的文件夹。接下来，你需要安装依赖并启动项目。以下是具体步骤：</p>
-<h4 id="（1）进入项目目录"><a href="#（1）进入项目目录" class="headerlink" title="（1）进入项目目录"></a>（1）进入项目目录</h4><p>假设克隆的仓库位于当前目录下的 <code>hexo-starter</code> 文件夹中，使用以下命令进入该目录：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> hexo-starter</span><br></pre></td></tr></table></figure>
-
-<h4 id="（2）安装依赖"><a href="#（2）安装依赖" class="headerlink" title="（2）安装依赖"></a>（2）安装依赖</h4><p>Hexo 项目依赖于一些 Node.js 包，你需要运行以下命令来安装这些依赖：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
-<p>这将会根据 <code>package.json</code> 文件中的配置，安装所有必要的依赖包。</p>
-<h4 id="（3）启动-Hexo-本地服务器"><a href="#（3）启动-Hexo-本地服务器" class="headerlink" title="（3）启动 Hexo 本地服务器"></a>（3）启动 Hexo 本地服务器</h4><p>安装完成后，你可以启动 Hexo 的本地开发服务器，预览你的博客：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npx hexo server</span><br></pre></td></tr></table></figure>
-<p>或者简写为：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npx hexo s</span><br></pre></td></tr></table></figure>
-<p>启动后，Hexo 会提示你访问 <code>http://localhost:4000</code>，在浏览器中打开这个地址即可查看你的博客。</p>
-<hr>
-<h3 id="3-如何自定义-Hexo-博客？"><a href="#3-如何自定义-Hexo-博客？" class="headerlink" title="3. 如何自定义 Hexo 博客？"></a>3. <strong>如何自定义 Hexo 博客？</strong></h3><p>克隆的 <code>hexo-starter</code> 是一个基础模板，你可以根据自己的需求进行自定义。以下是一些常见的操作：</p>
-<h4 id="（1）修改配置文件"><a href="#（1）修改配置文件" class="headerlink" title="（1）修改配置文件"></a>（1）修改配置文件</h4><p>Hexo 的主要配置文件是 <code>_config.yml</code>，你可以在这里修改博客的标题、描述、主题等设置。</p>
-<h4 id="（2）安装主题"><a href="#（2）安装主题" class="headerlink" title="（2）安装主题"></a>（2）安装主题</h4><p>Hexo 支持多种主题，你可以通过以下步骤安装并应用主题：</p>
-<ol>
-<li>在 <a href="https://hexo.io/themes/">Hexo 主题网站</a> 上选择一个你喜欢的主题。</li>
-<li>按照主题的文档安装主题。例如，安装 <code>hexo-theme-landscape</code> 主题：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-theme-landscape</span><br></pre></td></tr></table></figure></li>
-<li>在 <code>_config.yml</code> 中修改主题配置：<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">theme:</span> <span class="string">landscape</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-<h4 id="（3）创建新文章"><a href="#（3）创建新文章" class="headerlink" title="（3）创建新文章"></a>（3）创建新文章</h4><p>使用以下命令创建一篇新文章：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npx hexo new <span class="string">&quot;我的第一篇文章&quot;</span></span><br></pre></td></tr></table></figure>
-<p>这会在 <code>source/_posts</code> 目录下生成一个 Markdown 文件，你可以在其中编写文章内容。</p>
-<hr>
-<h3 id="4-常见问题"><a href="#4-常见问题" class="headerlink" title="4. 常见问题"></a>4. <strong>常见问题</strong></h3><h4 id="（1）克隆速度慢"><a href="#（1）克隆速度慢" class="headerlink" title="（1）克隆速度慢"></a>（1）克隆速度慢</h4><p>如果你在克隆 <code>hexo-starter</code> 时速度较慢，可以尝试使用 GitHub 的镜像地址，或者配置 Git 的代理。</p>
-<h4 id="（2）npm-install-报错"><a href="#（2）npm-install-报错" class="headerlink" title="（2）npm install 报错"></a>（2）<code>npm install</code> 报错</h4><p>如果 <code>npm install</code> 报错，可能是网络问题或 Node.js 版本不兼容。可以尝试以下方法：</p>
-<ul>
-<li>使用淘宝镜像：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install --registry=https://registry.npmmirror.com</span><br></pre></td></tr></table></figure></li>
-<li>检查 Node.js 版本是否符合 Hexo 的要求（建议使用 Node.js 12 或更高版本）。</li>
-</ul>
-<h4 id="（3）npx-hexo-server-无法启动"><a href="#（3）npx-hexo-server-无法启动" class="headerlink" title="（3）npx hexo server 无法启动"></a>（3）<code>npx hexo server</code> 无法启动</h4><p>如果本地服务器无法启动，可能是端口被占用。你可以尝试修改端口：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npx hexo server -p 5000</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="5-总结"><a href="#5-总结" class="headerlink" title="5. 总结"></a>5. <strong>总结</strong></h3><p>通过克隆 <code>hexo-starter</code>，你可以快速初始化一个 Hexo 博客项目。接下来，安装依赖、启动本地服务器，并根据需要自定义你的博客。如果你遇到问题，可以参考 Hexo 的官方文档：<a href="https://hexo.io/docs/">Hexo 文档</a>。</p>
-<h2 id="如果有其他问题，欢迎随时提问！title-my-first-blogdate-2025-01-19-21-13-15tags"><a href="#如果有其他问题，欢迎随时提问！title-my-first-blogdate-2025-01-19-21-13-15tags" class="headerlink" title="如果有其他问题，欢迎随时提问！title: my first blogdate: 2025-01-19 21:13:15tags:"></a>如果有其他问题，欢迎随时提问！<br>title: my first blog<br>date: 2025-01-19 21:13:15<br>tags:</h2>]]></content>
-  </entry>
-  <entry>
     <title>Hello World</title>
     <url>/2025/01/19/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -61,6 +16,152 @@
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2025/01/19/my-first-blog/</url>
+    <content><![CDATA[<p>Linux 命令行是管理和操作 Linux 系统的强大工具。无论是文件操作、系统管理、网络配置还是开发调试，命令行都能高效完成任务。以下是一些常用的 Linux 行命令及其用途：</p>
+<hr>
+<h3 id="1-文件和目录操作"><a href="#1-文件和目录操作" class="headerlink" title="1. 文件和目录操作"></a>1. <strong>文件和目录操作</strong></h3><ul>
+<li><p>**<code>ls</code>**：列出目录内容。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">ls</span>          <span class="comment"># 列出当前目录内容</span></span><br><span class="line"><span class="built_in">ls</span> -l       <span class="comment"># 以长格式列出（显示详细信息）</span></span><br><span class="line"><span class="built_in">ls</span> -a       <span class="comment"># 列出所有文件（包括隐藏文件）</span></span><br><span class="line"><span class="built_in">ls</span> -lh      <span class="comment"># 以易读格式显示文件大小</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>**<code>cd</code>**：切换目录。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /path/to/directory  <span class="comment"># 切换到指定目录</span></span><br><span class="line"><span class="built_in">cd</span> ..                 <span class="comment"># 返回上一级目录</span></span><br><span class="line"><span class="built_in">cd</span> ~                  <span class="comment"># 切换到用户主目录</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>**<code>pwd</code>**：显示当前工作目录。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">pwd</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>**<code>mkdir</code>**：创建目录。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> new_folder       <span class="comment"># 创建新目录</span></span><br><span class="line"><span class="built_in">mkdir</span> -p parent/child  <span class="comment"># 创建嵌套目录</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>**<code>rm</code>**：删除文件或目录。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">rm</span> file.txt            <span class="comment"># 删除文件</span></span><br><span class="line"><span class="built_in">rm</span> -r folder           <span class="comment"># 递归删除目录</span></span><br><span class="line"><span class="built_in">rm</span> -f file.txt         <span class="comment"># 强制删除（不提示）</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>**<code>cp</code>**：复制文件或目录。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cp</span> file.txt new_file.txt       <span class="comment"># 复制文件</span></span><br><span class="line"><span class="built_in">cp</span> -r folder new_folder        <span class="comment"># 递归复制目录</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>**<code>mv</code>**：移动或重命名文件或目录。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mv</span> file.txt new_location/      <span class="comment"># 移动文件</span></span><br><span class="line"><span class="built_in">mv</span> old_name.txt new_name.txt   <span class="comment"># 重命名文件</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>**<code>touch</code>**：创建空文件或更新文件时间戳。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">touch</span> new_file.txt</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>**<code>cat</code>**：查看文件内容。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> file.txt</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>**<code>more</code> &#x2F; <code>less</code>**：分页查看文件内容。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">more file.txt</span><br><span class="line">less file.txt</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>**<code>head</code> &#x2F; <code>tail</code>**：查看文件的开头或结尾部分。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">head</span> -n 10 file.txt  <span class="comment"># 查看前 10 行</span></span><br><span class="line"><span class="built_in">tail</span> -n 10 file.txt  <span class="comment"># 查看最后 10 行</span></span><br><span class="line"><span class="built_in">tail</span> -f file.txt     <span class="comment"># 实时查看文件更新（常用于日志）</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>**<code>find</code>**：查找文件。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">find /path -name <span class="string">&quot;*.txt&quot;</span>  <span class="comment"># 查找指定名称的文件</span></span><br><span class="line">find /path -<span class="built_in">type</span> f        <span class="comment"># 查找所有文件</span></span><br><span class="line">find /path -mtime -7      <span class="comment"># 查找最近 7 天修改的文件</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>**<code>grep</code>**：在文件中搜索文本。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">grep <span class="string">&quot;keyword&quot;</span> file.txt          <span class="comment"># 搜索文件中的关键字</span></span><br><span class="line">grep -r <span class="string">&quot;keyword&quot;</span> /path          <span class="comment"># 递归搜索目录中的文件</span></span><br><span class="line">grep -i <span class="string">&quot;keyword&quot;</span> file.txt       <span class="comment"># 忽略大小写搜索</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<hr>
+<h3 id="2-系统管理"><a href="#2-系统管理" class="headerlink" title="2. 系统管理"></a>2. <strong>系统管理</strong></h3><ul>
+<li><p>**<code>ps</code>**：查看进程状态。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ps aux          <span class="comment"># 查看所有进程</span></span><br><span class="line">ps -ef | grep nginx  <span class="comment"># 查找特定进程</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>**<code>top</code> &#x2F; <code>htop</code>**：实时查看系统资源使用情况。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">top</span><br><span class="line">htop</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>**<code>kill</code>**：终止进程。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">kill</span> 1234             <span class="comment"># 终止进程 ID 为 1234 的进程</span></span><br><span class="line"><span class="built_in">kill</span> -9 1234          <span class="comment"># 强制终止进程</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>**<code>df</code>**：查看磁盘使用情况。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">df</span> -h  <span class="comment"># 以易读格式显示磁盘使用情况</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>**<code>du</code>**：查看目录或文件的磁盘使用情况。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">du</span> -sh /path  <span class="comment"># 查看目录的总大小</span></span><br><span class="line"><span class="built_in">du</span> -ah /path  <span class="comment"># 查看目录中每个文件的大小</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>**<code>free</code>**：查看内存使用情况。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">free -h  <span class="comment"># 以易读格式显示内存使用情况</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>**<code>uname</code>**：查看系统信息。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">uname</span> -a  <span class="comment"># 显示所有系统信息</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>**<code>shutdown</code>**：关机或重启。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">shutdown now          <span class="comment"># 立即关机</span></span><br><span class="line">shutdown -r now       <span class="comment"># 立即重启</span></span><br><span class="line">shutdown -h +10       <span class="comment"># 10 分钟后关机</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<hr>
+<h3 id="3-网络操作"><a href="#3-网络操作" class="headerlink" title="3. 网络操作"></a>3. <strong>网络操作</strong></h3><ul>
+<li><p>**<code>ping</code>**：测试网络连接。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ping google.com</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>**<code>ifconfig</code> &#x2F; <code>ip</code>**：查看或配置网络接口。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ifconfig</span><br><span class="line">ip addr show</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>**<code>netstat</code>**：查看网络连接状态。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">netstat -tuln  <span class="comment"># 查看监听中的端口</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>**<code>ssh</code>**：远程登录。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh user@hostname</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>**<code>scp</code>**：通过 SSH 复制文件。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">scp file.txt user@hostname:/path  <span class="comment"># 复制到远程</span></span><br><span class="line">scp user@hostname:/path/file.txt .  <span class="comment"># 从远程复制</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>**<code>wget</code> &#x2F; <code>curl</code>**：下载文件。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://example.com/file.zip</span><br><span class="line">curl -O https://example.com/file.zip</span><br></pre></td></tr></table></figure></li>
+</ul>
+<hr>
+<h3 id="4-权限管理"><a href="#4-权限管理" class="headerlink" title="4. 权限管理"></a>4. <strong>权限管理</strong></h3><ul>
+<li><p>**<code>chmod</code>**：修改文件权限。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">chmod</span> 755 file.txt  <span class="comment"># 设置文件权限为 rwxr-xr-x</span></span><br><span class="line"><span class="built_in">chmod</span> +x script.sh  <span class="comment"># 添加可执行权限</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>**<code>chown</code>**：修改文件所有者。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">chown</span> user:group file.txt</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>**<code>sudo</code>**：以超级用户权限执行命令。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt update</span><br></pre></td></tr></table></figure></li>
+</ul>
+<hr>
+<h3 id="5-包管理"><a href="#5-包管理" class="headerlink" title="5. 包管理"></a>5. <strong>包管理</strong></h3><ul>
+<li><p>**<code>apt</code>**（Debian&#x2F;Ubuntu）：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt update          <span class="comment"># 更新包列表</span></span><br><span class="line"><span class="built_in">sudo</span> apt install package <span class="comment"># 安装包</span></span><br><span class="line"><span class="built_in">sudo</span> apt remove package  <span class="comment"># 卸载包</span></span><br><span class="line"><span class="built_in">sudo</span> apt upgrade         <span class="comment"># 升级所有已安装的包</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>**<code>yum</code>**（CentOS&#x2F;RHEL）：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> yum install package  <span class="comment"># 安装包</span></span><br><span class="line"><span class="built_in">sudo</span> yum remove package   <span class="comment"># 卸载包</span></span><br><span class="line"><span class="built_in">sudo</span> yum update           <span class="comment"># 更新所有包</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<hr>
+<h3 id="6-文本处理"><a href="#6-文本处理" class="headerlink" title="6. 文本处理"></a>6. <strong>文本处理</strong></h3><ul>
+<li><p>**<code>sed</code>**：流编辑器，用于文本替换。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sed <span class="string">&#x27;s/old/new/g&#x27;</span> file.txt  <span class="comment"># 替换文件中的文本</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>**<code>awk</code>**：文本处理工具。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">awk <span class="string">&#x27;&#123;print $1&#125;&#x27;</span> file.txt  <span class="comment"># 打印文件的第一列</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>**<code>sort</code>**：排序文件内容。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sort</span> file.txt</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>**<code>uniq</code>**：去除重复行。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">uniq</span> file.txt</span><br></pre></td></tr></table></figure></li>
+</ul>
+<hr>
+<h3 id="7-压缩和解压"><a href="#7-压缩和解压" class="headerlink" title="7. 压缩和解压"></a>7. <strong>压缩和解压</strong></h3><ul>
+<li><p>**<code>tar</code>**：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -czvf archive.tar.gz folder  <span class="comment"># 压缩文件夹</span></span><br><span class="line">tar -xzvf archive.tar.gz         <span class="comment"># 解压文件</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>**<code>zip</code> &#x2F; <code>unzip</code>**：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">zip archive.zip file.txt        <span class="comment"># 压缩文件</span></span><br><span class="line">unzip archive.zip               <span class="comment"># 解压文件</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<hr>
+<h3 id="8-其他常用命令"><a href="#8-其他常用命令" class="headerlink" title="8. 其他常用命令"></a>8. <strong>其他常用命令</strong></h3><ul>
+<li><p>**<code>history</code>**：查看命令历史。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">history</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>**<code>alias</code>**：创建命令别名。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">alias</span> ll=<span class="string">&#x27;ls -la&#x27;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>**<code>man</code>**：查看命令手册。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">man <span class="built_in">ls</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<hr>
 ]]></content>
   </entry>
 </search>
