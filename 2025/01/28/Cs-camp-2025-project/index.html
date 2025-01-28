@@ -20,19 +20,19 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="项目概述设计并实现一个文件管理系统，主要功能包括文件的复制、删除、压缩和解压。用户可以通过命令行输入相应命令来操作文件。该项目使用C语言编写，并依赖于Linux命令行工具（如 cp、rm、tar）来实现文件的操作 项目解析页面展示需要出现的提示信息：接受输入前：希望用户输入的指令形式；可提供的帮助提示；接受输入后：正确的指令且可执行返回结果；正确的指令但不可执行返回不可执行原因（用户权限，地址不存">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://example.com/2025/01/19/hello-world/index.html">
+<meta property="og:title" content="Cs camp 2025 project">
+<meta property="og:url" content="http://example.com/2025/01/28/Cs-camp-2025-project/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="项目概述设计并实现一个文件管理系统，主要功能包括文件的复制、删除、压缩和解压。用户可以通过命令行输入相应命令来操作文件。该项目使用C语言编写，并依赖于Linux命令行工具（如 cp、rm、tar）来实现文件的操作 项目解析页面展示需要出现的提示信息：接受输入前：希望用户输入的指令形式；可提供的帮助提示；接受输入后：正确的指令且可执行返回结果；正确的指令但不可执行返回不可执行原因（用户权限，地址不存">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-01-19T09:28:03.511Z">
-<meta property="article:modified_time" content="2025-01-19T09:26:51.321Z">
+<meta property="article:published_time" content="2025-01-28T07:14:32.000Z">
+<meta property="article:modified_time" content="2025-01-28T09:08:40.534Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2025/01/19/hello-world/">
+<link rel="canonical" href="http://example.com/2025/01/28/Cs-camp-2025-project/">
 
 
 <script id="page-configurations">
@@ -45,7 +45,7 @@
   };
 </script>
 
-  <title>Hello World | Hexo</title>
+  <title>Cs camp 2025 project | Hexo</title>
   
 
 
@@ -188,7 +188,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/01/19/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/01/28/Cs-camp-2025-project/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -201,7 +201,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Hello World
+          Cs camp 2025 project
         </h1>
 
         <div class="post-meta">
@@ -212,7 +212,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2025-01-19 17:28:03 / 修改时间：17:26:51" itemprop="dateCreated datePublished" datetime="2025-01-19T17:28:03+08:00">2025-01-19</time>
+              <time title="创建时间：2025-01-28 15:14:32 / 修改时间：17:08:40" itemprop="dateCreated datePublished" datetime="2025-01-28T15:14:32+08:00">2025-01-28</time>
             </span>
 
           
@@ -226,19 +226,41 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+        <h1 id="项目概述"><a href="#项目概述" class="headerlink" title="项目概述"></a>项目概述</h1><p>设计并实现一个文件管理系统，主要功能包括文件的复制、删除、压缩和解压。用户可以通过命令行输入相应命令来操作文件。该项目使用C语言编写，并依赖于Linux命令行工具（如 <code>cp</code>、<code>rm</code>、<code>tar</code>）来实现文件的操作</p>
+<h1 id="项目解析"><a href="#项目解析" class="headerlink" title="项目解析"></a>项目解析</h1><p><strong>页面展示</strong><br>需要出现的提示信息：接受输入前：希望用户输入的指令形式；可提供的帮助提示；<br>接受输入后：正确的指令且可执行返回结果；正确的指令但不可执行返回不可执行原因（用户权限，地址不存在，文件不存在），错误的指令返回提示</p>
+<p><strong>输入处理</strong><br>对于输入的命令，要把它拆分三个部分 “命令” “地址&#x2F;文件&#x2F;文件夹” “文件&#x2F;文件夹”，之间用空格space分开，否则就返回不合理格式</p>
+<p><strong>功能实现</strong><br>输入后，先检测当前用户&#x2F;用户组权限，那么在识别命令之后，如果权限不足，直接返回错误信息<br>如果权限足够，则分别进入复制，删除，，压缩，解压模块<br>在模块内，先进行检查，根据拆分的路径&#x2F;文件，先检查是否存在，再检查权限是否可读可写<br>如果不存在&#x2F;权限不足，返回错误信息<br>如果可行，返回正确结果<br>#include &lt;stdio.h&gt;<br>#include &lt;string.h&gt;<br>#include &lt;stdlib.h&gt;</p>
+<p>&#x2F;&#x2F; 函数声明<br>void extract_paths(const char *command);</p>
+<p>int main() {<br>    char command[256];</p>
+<pre><code>// 获取用户输入的命令
+printf(&quot;请输入命令: &quot;);
+fgets(command, sizeof(command), stdin);
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+// 去掉输入中的换行符
+command[strcspn(command, &quot;\n&quot;)] = &#39;\0&#39;;
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+// 提取路径
+extract_paths(command);
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+return 0;
+</code></pre>
+<p>}</p>
+<p>&#x2F;&#x2F; 提取路径的函数<br>void extract_paths(const char *command) {<br>    char *token;<br>    char *copy &#x3D; strdup(command); &#x2F;&#x2F; 复制命令字符串，避免修改原字符串<br>    const char *delimiters &#x3D; “ \t\n”; &#x2F;&#x2F; 分隔符：空格、制表符、换行符</p>
+<pre><code>printf(&quot;提取的路径或地址:\n&quot;);
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+// 使用 strtok 分割字符串
+token = strtok(copy, delimiters);
+while (token != NULL) &#123;
+    // 检查是否是路径或地址（简单判断是否包含 &#39;/&#39; 或 &#39;.&#39; 或 &#39;~&#39;）
+    if (strchr(token, &#39;/&#39;) != NULL || strchr(token, &#39;.&#39;) != NULL||strchr(token,&#39;~&#39;)!=NULL) &#123;
+        printf(&quot;%s\n&quot;, token);
+    &#125;
+    token = strtok(NULL, delimiters);
+&#125;
+
+free(copy); // 释放复制的字符串
+</code></pre>
+<p>}</p>
 
     </div>
 
@@ -253,11 +275,11 @@
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2025/01/19/my-first-blog/" rel="next" title="">
-       <i class="fa fa-chevron-right"></i>
+    <a href="/2025/01/19/my-first-blog/" rel="prev" title="">
+      <i class="fa fa-chevron-left"></i> 
     </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -316,7 +338,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">项目概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E8%A7%A3%E6%9E%90"><span class="nav-number">2.</span> <span class="nav-text">项目解析</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

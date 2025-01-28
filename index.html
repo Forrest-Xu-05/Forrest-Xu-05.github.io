@@ -183,6 +183,99 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/01/28/Cs-camp-2025-project/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/01/28/Cs-camp-2025-project/" class="post-title-link" itemprop="url">Cs camp 2025 project</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-01-28 15:14:32 / 修改时间：17:08:40" itemprop="dateCreated datePublished" datetime="2025-01-28T15:14:32+08:00">2025-01-28</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="项目概述"><a href="#项目概述" class="headerlink" title="项目概述"></a>项目概述</h1><p>设计并实现一个文件管理系统，主要功能包括文件的复制、删除、压缩和解压。用户可以通过命令行输入相应命令来操作文件。该项目使用C语言编写，并依赖于Linux命令行工具（如 <code>cp</code>、<code>rm</code>、<code>tar</code>）来实现文件的操作</p>
+<h1 id="项目解析"><a href="#项目解析" class="headerlink" title="项目解析"></a>项目解析</h1><p><strong>页面展示</strong><br>需要出现的提示信息：接受输入前：希望用户输入的指令形式；可提供的帮助提示；<br>接受输入后：正确的指令且可执行返回结果；正确的指令但不可执行返回不可执行原因（用户权限，地址不存在，文件不存在），错误的指令返回提示</p>
+<p><strong>输入处理</strong><br>对于输入的命令，要把它拆分三个部分 “命令” “地址&#x2F;文件&#x2F;文件夹” “文件&#x2F;文件夹”，之间用空格space分开，否则就返回不合理格式</p>
+<p><strong>功能实现</strong><br>输入后，先检测当前用户&#x2F;用户组权限，那么在识别命令之后，如果权限不足，直接返回错误信息<br>如果权限足够，则分别进入复制，删除，，压缩，解压模块<br>在模块内，先进行检查，根据拆分的路径&#x2F;文件，先检查是否存在，再检查权限是否可读可写<br>如果不存在&#x2F;权限不足，返回错误信息<br>如果可行，返回正确结果<br>#include &lt;stdio.h&gt;<br>#include &lt;string.h&gt;<br>#include &lt;stdlib.h&gt;</p>
+<p>&#x2F;&#x2F; 函数声明<br>void extract_paths(const char *command);</p>
+<p>int main() {<br>    char command[256];</p>
+<pre><code>// 获取用户输入的命令
+printf(&quot;请输入命令: &quot;);
+fgets(command, sizeof(command), stdin);
+
+// 去掉输入中的换行符
+command[strcspn(command, &quot;\n&quot;)] = &#39;\0&#39;;
+
+// 提取路径
+extract_paths(command);
+
+return 0;
+</code></pre>
+<p>}</p>
+<p>&#x2F;&#x2F; 提取路径的函数<br>void extract_paths(const char *command) {<br>    char *token;<br>    char *copy &#x3D; strdup(command); &#x2F;&#x2F; 复制命令字符串，避免修改原字符串<br>    const char *delimiters &#x3D; “ \t\n”; &#x2F;&#x2F; 分隔符：空格、制表符、换行符</p>
+<pre><code>printf(&quot;提取的路径或地址:\n&quot;);
+
+// 使用 strtok 分割字符串
+token = strtok(copy, delimiters);
+while (token != NULL) &#123;
+    // 检查是否是路径或地址（简单判断是否包含 &#39;/&#39; 或 &#39;.&#39; 或 &#39;~&#39;）
+    if (strchr(token, &#39;/&#39;) != NULL || strchr(token, &#39;.&#39;) != NULL||strchr(token,&#39;~&#39;)!=NULL) &#123;
+        printf(&quot;%s\n&quot;, token);
+    &#125;
+    token = strtok(NULL, delimiters);
+&#125;
+
+free(copy); // 释放复制的字符串
+</code></pre>
+<p>}</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2025/01/19/my-first-blog/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -521,7 +614,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
