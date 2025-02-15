@@ -1,6 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Cs camp 2024 project</title>
+    <url>/2025/01/28/Cs-camp-2025-project/</url>
+    <content><![CDATA[<h1 id="项目概述"><a href="#项目概述" class="headerlink" title="项目概述"></a>项目概述</h1><p>设计并实现一个文件管理系统，主要功能包括文件的复制、删除、压缩和解压。用户可以通过命令行输入相应命令来操作文件。该项目使用C语言编写，并依赖于Linux命令行工具（如 <code>cp</code>、<code>rm</code>、<code>tar</code>）来实现文件的操作</p>
+<h1 id="项目解析"><a href="#项目解析" class="headerlink" title="项目解析"></a>项目解析</h1><p><strong>页面展示</strong><br>需要出现的提示信息：接受输入前：希望用户输入的指令形式；可提供的帮助提示；<br>void show_help() {<br>    printf(<br>        “Usage of Linux commands: cp, rm, tar\n\n”<br>        “1. <code>cp</code> command\n”<br>        “<code>cp</code> is used to copy files or directories.\n\n”<br>        “Basic syntax:\n”<br>        “cp [options] source_file target_file\n\n”<br>        “Common options:\n”<br>        “- <code>-r</code> or <code>--recursive</code>: Copy directories recursively.\n”<br>        “- <code>-i</code> or <code>--interactive</code>: Prompt before overwriting.\n”<br>        “- <code>-v</code> or <code>--verbose</code>: Display detailed information.\n”<br>        “- <code>-u</code> or <code>--update</code>: Copy only when the source file is newer.\n\n”<br>        “Examples:\n”<br>        “- Copy a file:\n”<br>        “  cp file1.txt file2.txt\n”<br>        “- Copy a directory:\n”<br>        “  cp -r dir1 dir2\n”<br>        “- Copy and display details:\n”<br>        “  cp -v file1.txt file2.txt\n\n”<br>        “2. <code>rm</code> command\n”<br>        “<code>rm</code> is used to delete files or directories.\n\n”<br>        “Basic syntax:\n”<br>        “rm [options] file_or_directory\n\n”<br>        “Common options:\n”<br>        “- <code>-r</code> or <code>--recursive</code>: Delete directories recursively.\n”<br>        “- <code>-f</code> or <code>--force</code>: Force deletion without confirmation.\n”<br>        “- <code>-i</code> or <code>--interactive</code>: Prompt before deletion.\n”<br>        “- <code>-v</code> or <code>--verbose</code>: Display detailed information.\n\n”<br>        “Examples:\n”<br>        “- Delete a file:\n”<br>        “  rm file.txt\n”<br>        “- Delete a directory and its contents:\n”<br>        “  rm -r dir\n”<br>        “- Force delete a file without confirmation:\n”<br>        “  rm -f file.txt\n\n”<br>        “3. <code>tar</code> command\n”<br>        “<code>tar</code> is used to archive and extract files, often combined with compression tools.\n\n”<br>        “Basic syntax:\n”<br>        “tar [options] file_or_directory\n\n”<br>        “Common options:\n”<br>        “- <code>-c</code> or <code>--create</code>: Create a new archive.\n”<br>        “- <code>-x</code> or <code>--extract</code>: Extract files from an archive.\n”<br>        “- <code>-v</code> or <code>--verbose</code>: Display detailed information.\n”<br>        “- <code>-f</code> or <code>--file</code>: Specify the archive file name.\n”<br>        “- <code>-z</code> or <code>--gzip</code>: Use gzip compression.\n”<br>        “- <code>-j</code> or <code>--bzip2</code>: Use bzip2 compression.\n”<br>        “- <code>-t</code> or <code>--list</code>: List the contents of an archive.\n\n”<br>        “Examples:\n”<br>        “- Archive a directory:\n”<br>        “  tar -cvf archive.tar dir\n”<br>        “- Archive and compress with gzip:\n”<br>        “  tar -czvf archive.tar.gz dir\n”<br>        “- Extract a tar archive:\n”<br>        “  tar -xvf archive.tar\n”<br>        “- Extract a gzip-compressed tar archive:\n”<br>        “  tar -xzvf archive.tar.gz\n”<br>        “- List the contents of a tar archive:\n”<br>        “  tar -tvf archive.tar\n”<br>    );<br>}<br>接受输入后：正确的指令且可执行返回结果；正确的指令但不可执行返回不可执行原因（用户权限，地址不存在，文件不存在），错误的指令返回提示</p>
+<p><strong>输入处理</strong><br>对于输入的命令，要把它拆分三个部分 “命令” “选项“地址&#x2F;文件&#x2F;文件夹” “文件&#x2F;文件夹”<br>使用strtok进行分割<br>char *token&#x3D;strtok(input_copy,” “);<br>    while ((token!&#x3D;NULL&amp;&amp;token_count&lt;20))<br>    {<br>        tokens[token_count++]&#x3D;token;<br>        token&#x3D;strtok(NULL,” “);<br>    }</p>
+<p><strong>功能实现</strong><br>分别进入复制，删除，，压缩，解压模块<br>void Copypatten(char* source,char<em>destination)&#x2F;&#x2F;参数不使用完整命令句子是为了方便处理<br>{<br>    if(access(source,F_OK)&#x3D;&#x3D;0&amp;&amp;access(destination,F_OK)&#x3D;&#x3D;0)&#x2F;&#x2F;文件是否存在<br>    {<br>    if(!check_permission(source,R_OK)){<br>        printf(“Error:No read permission for source file:%s\n”,source);<br>        return ;<br>    }<br>    if(!check_permission(destination,W_OK)){<br>        printf(“Error:No write permisson for destination file:%s\n”,destination);<br>        return;&#x2F;&#x2F;是否有权限<br>    }<br>    char command[100];<br>    snprintf(command,sizeof(command),”cp %s %s”,source,destination);<br>    printf(“Executing command:%s\n”,command);<br>    int result &#x3D;system(command );<br>    if(result&#x3D;&#x3D;0){<br>        printf(“File copied successfully:%s -&gt;%s\n”,source,destination);<br>    }else{<br>        printf(“Fail to copy file.Please check the command format .\n”);<br>    }<br>    }else{<br>            printf(“Error file or destination is not exist”);<br>        }<br>}<br>void Removepatten(char</em> file)<br>{<br>    if(access(file,F_OK)&#x3D;&#x3D;0){<br>     if (!check_permission(file, W_OK)){<br>        printf(“Error: No write permission for file: %s\n”, file);<br>        return;<br>    }</p>
+<pre><code>char command[100];
+snprintf(command, sizeof(command), &quot;rm %s&quot;, file);
+printf(&quot;Executing command: %s\n&quot;, command);
+int result = system(command);
+if (result == 0) &#123;
+    printf(&quot;File deleted successfully: %s\n&quot;, file);
+&#125; else &#123;
+    printf(&quot;Failed to delete file. Please check the command format.\n&quot;);
+&#125;
+&#125;else&#123;
+    printf(&quot;Error:file is not exist&quot;);
+&#125;
+</code></pre>
+<p>}</p>
+<p>&#x2F;&#x2F; 压缩文件<br>void compress_files(char* archive, char* files) {<br>    if(access(files,F_OK)&#x3D;&#x3D;0){<br>    if (!check_permission(files, R_OK)) {<br>        printf(“Error: No read permission for files: %s\n”, files);<br>        return;<br>    }</p>
+<pre><code>char command[100];
+snprintf(command, sizeof(command), &quot;tar -cvf %s %s&quot;, archive, files);
+printf(&quot;Executing command: %s\n&quot;, command);
+int result = system(command);
+if (result == 0) &#123;
+    printf(&quot;Files compressed successfully: %s\n&quot;, archive);
+&#125; else &#123;
+    printf(&quot;Failed to compress files. Please check the command format.\n&quot;);
+&#125;
+&#125;else&#123;
+    printf(&quot;Erorr :files are not all existed&quot;);
+&#125;
+</code></pre>
+<p>}<br>&#x2F;&#x2F; 解压文件<br>void extract_files(char* archive) {<br>在模块内，先进行检查，根据拆分的路径&#x2F;文件，先检查是否存在，再检查权限是否可读可写，使用access函数<br>int check_permission(const char*file,int mode)<br>{<br>    if(access(file,mode)&#x3D;&#x3D;0){<br>        return 1;<br>    }<br>    else{<br>        return 0;<br>    }<br>}<br>如果不存在&#x2F;权限不足，返回错误信息<br>如果可行，返回正确结果</p>
+]]></content>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/2025/01/19/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -162,44 +200,6 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">man <span class="built_in">ls</span></span><br></pre></td></tr></table></figure></li>
 </ul>
 <hr>
-]]></content>
-  </entry>
-  <entry>
-    <title>Cs camp 2024 project</title>
-    <url>/2025/01/28/Cs-camp-2025-project/</url>
-    <content><![CDATA[<h1 id="项目概述"><a href="#项目概述" class="headerlink" title="项目概述"></a>项目概述</h1><p>设计并实现一个文件管理系统，主要功能包括文件的复制、删除、压缩和解压。用户可以通过命令行输入相应命令来操作文件。该项目使用C语言编写，并依赖于Linux命令行工具（如 <code>cp</code>、<code>rm</code>、<code>tar</code>）来实现文件的操作</p>
-<h1 id="项目解析"><a href="#项目解析" class="headerlink" title="项目解析"></a>项目解析</h1><p><strong>页面展示</strong><br>需要出现的提示信息：接受输入前：希望用户输入的指令形式；可提供的帮助提示；<br>void show_help() {<br>    printf(<br>        “Usage of Linux commands: cp, rm, tar\n\n”<br>        “1. <code>cp</code> command\n”<br>        “<code>cp</code> is used to copy files or directories.\n\n”<br>        “Basic syntax:\n”<br>        “cp [options] source_file target_file\n\n”<br>        “Common options:\n”<br>        “- <code>-r</code> or <code>--recursive</code>: Copy directories recursively.\n”<br>        “- <code>-i</code> or <code>--interactive</code>: Prompt before overwriting.\n”<br>        “- <code>-v</code> or <code>--verbose</code>: Display detailed information.\n”<br>        “- <code>-u</code> or <code>--update</code>: Copy only when the source file is newer.\n\n”<br>        “Examples:\n”<br>        “- Copy a file:\n”<br>        “  cp file1.txt file2.txt\n”<br>        “- Copy a directory:\n”<br>        “  cp -r dir1 dir2\n”<br>        “- Copy and display details:\n”<br>        “  cp -v file1.txt file2.txt\n\n”<br>        “2. <code>rm</code> command\n”<br>        “<code>rm</code> is used to delete files or directories.\n\n”<br>        “Basic syntax:\n”<br>        “rm [options] file_or_directory\n\n”<br>        “Common options:\n”<br>        “- <code>-r</code> or <code>--recursive</code>: Delete directories recursively.\n”<br>        “- <code>-f</code> or <code>--force</code>: Force deletion without confirmation.\n”<br>        “- <code>-i</code> or <code>--interactive</code>: Prompt before deletion.\n”<br>        “- <code>-v</code> or <code>--verbose</code>: Display detailed information.\n\n”<br>        “Examples:\n”<br>        “- Delete a file:\n”<br>        “  rm file.txt\n”<br>        “- Delete a directory and its contents:\n”<br>        “  rm -r dir\n”<br>        “- Force delete a file without confirmation:\n”<br>        “  rm -f file.txt\n\n”<br>        “3. <code>tar</code> command\n”<br>        “<code>tar</code> is used to archive and extract files, often combined with compression tools.\n\n”<br>        “Basic syntax:\n”<br>        “tar [options] file_or_directory\n\n”<br>        “Common options:\n”<br>        “- <code>-c</code> or <code>--create</code>: Create a new archive.\n”<br>        “- <code>-x</code> or <code>--extract</code>: Extract files from an archive.\n”<br>        “- <code>-v</code> or <code>--verbose</code>: Display detailed information.\n”<br>        “- <code>-f</code> or <code>--file</code>: Specify the archive file name.\n”<br>        “- <code>-z</code> or <code>--gzip</code>: Use gzip compression.\n”<br>        “- <code>-j</code> or <code>--bzip2</code>: Use bzip2 compression.\n”<br>        “- <code>-t</code> or <code>--list</code>: List the contents of an archive.\n\n”<br>        “Examples:\n”<br>        “- Archive a directory:\n”<br>        “  tar -cvf archive.tar dir\n”<br>        “- Archive and compress with gzip:\n”<br>        “  tar -czvf archive.tar.gz dir\n”<br>        “- Extract a tar archive:\n”<br>        “  tar -xvf archive.tar\n”<br>        “- Extract a gzip-compressed tar archive:\n”<br>        “  tar -xzvf archive.tar.gz\n”<br>        “- List the contents of a tar archive:\n”<br>        “  tar -tvf archive.tar\n”<br>    );<br>}<br>接受输入后：正确的指令且可执行返回结果；正确的指令但不可执行返回不可执行原因（用户权限，地址不存在，文件不存在），错误的指令返回提示</p>
-<p><strong>输入处理</strong><br>对于输入的命令，要把它拆分三个部分 “命令” “选项“地址&#x2F;文件&#x2F;文件夹” “文件&#x2F;文件夹”<br>使用strtok进行分割<br>char *token&#x3D;strtok(input_copy,” “);<br>    while ((token!&#x3D;NULL&amp;&amp;token_count&lt;20))<br>    {<br>        tokens[token_count++]&#x3D;token;<br>        token&#x3D;strtok(NULL,” “);<br>    }</p>
-<p><strong>功能实现</strong><br>分别进入复制，删除，，压缩，解压模块<br>void Copypatten(char* source,char<em>destination)&#x2F;&#x2F;参数不使用完整命令句子是为了方便处理<br>{<br>    if(access(source,F_OK)&#x3D;&#x3D;0&amp;&amp;access(destination,F_OK)&#x3D;&#x3D;0)&#x2F;&#x2F;文件是否存在<br>    {<br>    if(!check_permission(source,R_OK)){<br>        printf(“Error:No read permission for source file:%s\n”,source);<br>        return ;<br>    }<br>    if(!check_permission(destination,W_OK)){<br>        printf(“Error:No write permisson for destination file:%s\n”,destination);<br>        return;&#x2F;&#x2F;是否有权限<br>    }<br>    char command[100];<br>    snprintf(command,sizeof(command),”cp %s %s”,source,destination);<br>    printf(“Executing command:%s\n”,command);<br>    int result &#x3D;system(command );<br>    if(result&#x3D;&#x3D;0){<br>        printf(“File copied successfully:%s -&gt;%s\n”,source,destination);<br>    }else{<br>        printf(“Fail to copy file.Please check the command format .\n”);<br>    }<br>    }else{<br>            printf(“Error file or destination is not exist”);<br>        }<br>}<br>void Removepatten(char</em> file)<br>{<br>    if(access(file,F_OK)&#x3D;&#x3D;0){<br>     if (!check_permission(file, W_OK)){<br>        printf(“Error: No write permission for file: %s\n”, file);<br>        return;<br>    }</p>
-<pre><code>char command[100];
-snprintf(command, sizeof(command), &quot;rm %s&quot;, file);
-printf(&quot;Executing command: %s\n&quot;, command);
-int result = system(command);
-if (result == 0) &#123;
-    printf(&quot;File deleted successfully: %s\n&quot;, file);
-&#125; else &#123;
-    printf(&quot;Failed to delete file. Please check the command format.\n&quot;);
-&#125;
-&#125;else&#123;
-    printf(&quot;Error:file is not exist&quot;);
-&#125;
-</code></pre>
-<p>}</p>
-<p>&#x2F;&#x2F; 压缩文件<br>void compress_files(char* archive, char* files) {<br>    if(access(files,F_OK)&#x3D;&#x3D;0){<br>    if (!check_permission(files, R_OK)) {<br>        printf(“Error: No read permission for files: %s\n”, files);<br>        return;<br>    }</p>
-<pre><code>char command[100];
-snprintf(command, sizeof(command), &quot;tar -cvf %s %s&quot;, archive, files);
-printf(&quot;Executing command: %s\n&quot;, command);
-int result = system(command);
-if (result == 0) &#123;
-    printf(&quot;Files compressed successfully: %s\n&quot;, archive);
-&#125; else &#123;
-    printf(&quot;Failed to compress files. Please check the command format.\n&quot;);
-&#125;
-&#125;else&#123;
-    printf(&quot;Erorr :files are not all existed&quot;);
-&#125;
-</code></pre>
-<p>}<br>&#x2F;&#x2F; 解压文件<br>void extract_files(char* archive) {<br>在模块内，先进行检查，根据拆分的路径&#x2F;文件，先检查是否存在，再检查权限是否可读可写，使用access函数<br>int check_permission(const char*file,int mode)<br>{<br>    if(access(file,mode)&#x3D;&#x3D;0){<br>        return 1;<br>    }<br>    else{<br>        return 0;<br>    }<br>}<br>如果不存在&#x2F;权限不足，返回错误信息<br>如果可行，返回正确结果</p>
 ]]></content>
   </entry>
 </search>
